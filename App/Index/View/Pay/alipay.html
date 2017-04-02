@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$order_info.label}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<style>
+    html,body{ background: #eee;}
+    *{margin:0px; padding: 0px; list-style: none;font-family:"Microsoft YaHei"}
+    .head{ width: 100%; height: 45px; line-height: 45px; text-align: center; font-size: 14px; color: #666; background-color: #fff; box-shadow:0px 0px 3px #eee;}
+    .left{ float: left; padding-left: 10px;}
+    .right{ float: right; padding-right: 10px;}
+    .conetnt{ margin-top: 20px;}
+    .conetnt li{  width: 100%; height: 40px; line-height: 40px;  font-size: 14px; color: #333;  background-color: #fff; border-bottom: 1px solid #eee; }
+    .m{ color:red;}
+    .button_bar{  padding:0px 5px;}
+    .button{ height: 40px; width: 100%; background-color:#00CD00; color: #fff; font-size: 14px;  display: block; margin-top: 20px; border-radius: 5px; line-height: 40px; text-align: center; text-decoration: none;}
+    .foot{ position: fixed; left: 0px; bottom:0px; font-size: 12px; text-align: center; }
+    .ok_img{ width: 100%;   background-color: #fff; margin-bottom: 10px;  display: none;}
+    .ok_img img{ width: 100px; height: 100px; display: block; margin:0px auto; padding-top: 25px;}
+    .ok_img h3{ font-size: 14px; text-align: center; height: 25px; line-height: 25px; padding-bottom: 20px; padding-top: 15px;}
+</style>
+<body>
+<div class="head">
+    {$order_info.label}
+</div>
+<div class="conetnt">
+    <if condition="$order_info['type'] neq 1">
+    <div class="ok_img">
+        <img src="http://sc.jb51.net/uploads/allimg/140413/10-14041322462QL.jpg" alt="">
+        <h3>{$order_info.label}</h3>
+    </div>
+    </if>
+    <if condition="$order_info['type'] eq 1">
+    <ul>
+        <li>
+            <div class="left">订单编号</div>
+            <div class="right">{$order_info['orderid']}</div>
+        </li>
+        <li>
+            <div class="left">支付金额</div>
+            <div class="right"><span class="m">{$order_info['money']}</span></div>
+        </li>
+    </ul>
+    </if>
+</div>
+<if condition="$order_info['type'] eq 1">
+<div class="button_bar">
+    <a href="{:U('alipay_pay',array('id'=>$order_info['id']))}" class="button">立刻支付</a>
+</div>
+</if>
+<div class="foot">
+
+</div>
+</body>
+</html>

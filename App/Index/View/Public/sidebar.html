@@ -1,0 +1,157 @@
+<!-- #section:basics/sidebar -->
+<div id="sidebar" class="sidebar responsive">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('sidebar', 'fixed')
+        } catch(e){}
+    </script>
+    <!-- /.sidebar-shortcuts -->
+    <?php if($user['gid'] == 1){ ?>
+    <ul class="nav nav-list">
+        <volist name="menu" id="v">
+            <li <if condition="($v['id'] eq $current['id']) OR ($v['id'] eq $current['pid']) OR ($v['id'] eq $current['ppid'])">class="active
+            <if condition="$current['pid'] neq '0'">open</if>"</if>>
+            <a href="<empty name="v.name">#<else />{:U($v['name'])}</empty>" <notempty name="v.children">class="dropdown-toggle"</notempty>>
+            <i class="{$v.icon}"></i>
+            <span class="menu-text">{$v.title}</span>
+            <notempty name="v.children">
+                <b class="arrow fa fa-angle-down"></b>
+            </notempty>
+            </a>
+            <b class="arrow"></b>
+            <notempty name="v.children">
+                <ul class="submenu">
+                    <volist name="v.children" id="vv">
+                        <li <if condition="($vv['id'] eq $current['id']) OR ($vv['id'] eq $current['pid'])">class="active
+                        <if condition="$current['ppid'] neq '0'">open</if>"</if>>
+                        <a href="<empty name="vv.children "><if condition="$vv['name'] eq 'Promotion/index/yestotay' ">{:U(str_replace('/yestotay', '?startime=' . date('Y-m-d 00:00:00', strtotime('-1 day')) . '&endtime=' . date('Y-m-d 00:00:00'),$vv['name']))}<else />{:U($vv['name'])}</if><else />#</empty>" <notempty name="vv.children">class="dropdown-toggle"</notempty>>
+                        <i class="{$vv.icon}"></i>{$vv.title}
+                        <notempty name="vv.children">
+                            <b class="arrow fa fa-angle-down"></b></notempty>
+                        </a>
+                        <b class="arrow"></b>
+                        <notempty name="vv.children">
+                            <ul class="submenu">
+                                <volist name="vv.children" id="vvv">
+                                    <li <if condition="$vvv['id'] eq $current['id']">class="active"</if>>
+                                    <a href="{:U($vvv['name'])}">
+                                        <i class="{$vvv.icon}"></i>{$vvv.title}</a>
+                                    <b class="arrow"></b>
+                                    </li>
+                                </volist>
+                            </ul>
+                        </notempty>
+                        </li>
+                    </volist>
+                </ul>
+            </notempty>
+            </li>
+        </volist>
+    </ul>
+    <?php } ?>
+    <?php if($user['gid'] == 2){ ?>
+    <ul class="nav nav-list">
+        <li>
+            <a  href="{:U('Promotion/generalize')}" >
+                <i class="menu-icon fa fa-desktop"></i>
+                <span class="menu-text">推广链接资源</span>
+            </a>
+        </li>
+        <li>
+            <a href="{:U('Promotion/index')}">
+                <i class="menu-icon fa fa-tachometer"></i>
+                <span class="menu-text">今日数据报表</span>
+            </a>
+        </li>
+        <li>
+            <a href="{:U('Promotion/index','startime='.date('Y-m-d 00:00:00',strtotime('-1 day')).'&endtime='.date('Y-m-d 00:00:00'))}">
+                <i class="menu-icon fa fa-tachometer"></i>
+                <span class="menu-text">昨日数据报表</span>
+            </a>
+        </li>
+        <li>
+            <a  href="{:U('Member/index')}" >
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text">下级管理</span>
+            </a>
+        </li>
+        <li >
+            <a href="/index.php?m=qwadmin&c=personal&a=index" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">个人中心</span>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li >
+                    <a href="{:U('personal/profile')}" >
+                        <i class="menu-icon fa fa-user"></i>个人资料
+                    </a>
+                    <b class="arrow"></b>
+                </li><li >
+                <a href="{:U('logout/index')}" >
+                    <i class=""></i>退出
+                </a>
+                <b class="arrow"></b>
+            </li>
+            </ul>
+        </li>
+    </ul>
+    <?php } ?>
+    <?php if($user['gid'] == 3){ ?>
+    <ul class="nav nav-list">
+        <li>
+            <a  href="{:U('Promotion/generalize')}" >
+                <i class="menu-icon fa fa-desktop"></i>
+                <span class="menu-text">推广链接资源</span>
+            </a>
+        </li>
+        <li>
+            <a href="{:U('Promotion/index')}">
+                <i class="menu-icon fa fa-tachometer"></i>
+                <span class="menu-text">今日数据报表</span>
+            </a>
+        </li>
+        <li>
+        <a href="{:U('Promotion/index','startime='.date('Y-m-d 00:00:00',strtotime('-1 day')).'&endtime='.date('Y-m-d 00:00:00'))}">
+            <i class="menu-icon fa fa-tachometer"></i>
+            <span class="menu-text">昨日数据报表</span>
+        </a>
+        </li>
+        <li >
+            <a href="/index.php?m=qwadmin&c=personal&a=index" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">个人中心</span>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li >
+                    <a href="{:U('personal/profile')}" >
+                        <i class="menu-icon fa fa-user"></i>个人资料
+                    </a>
+                    <b class="arrow"></b>
+                </li><li >
+                <a href="{:U('logout/index')}" >
+                    <i class=""></i>退出
+                </a>
+                <b class="arrow"></b>
+            </li>
+            </ul>
+        </li>
+    </ul>
+    <?php } ?>
+
+
+
+    <!-- /.nav-list -->
+    <!-- #section:basics/sidebar.layout.minimize -->
+    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+        <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+    </div>
+    <!-- /section:basics/sidebar.layout.minimize -->
+    <script type="text/javascript">
+        try {
+            ace.settings.check('sidebar', 'collapsed')
+        } catch(e) {}
+    </script>
+</div>
+<!-- /section:basics/sidebar -->

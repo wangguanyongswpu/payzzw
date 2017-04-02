@@ -1,0 +1,7 @@
+array (
+  'out_trade_no' => 'H14877537976692891',
+  'total_fee' => '0.01',
+  'trade_status' => '1',
+  'custom' => '测试',
+  'sign' => '6219179b3d5830f377d9a70b629b7ee8',
+)

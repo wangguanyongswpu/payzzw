@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付成功</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <style>
+        html,body{ background: #eee;}
+        *{margin:0px; padding: 0px; list-style: none;font-family:"Microsoft YaHei"}
+        .head{ width: 100%; height: 45px; line-height: 45px; text-align: center; font-size: 14px; color: #666; background-color: #fff; box-shadow:0px 0px 3px #eee;}
+        .left{ float: left; padding-left: 10px;}
+        .right{ float: right; padding-right: 10px;}
+        .conetnt{ margin-top: 20px;}
+        .foot{ position: fixed; left: 0px; bottom:0px; font-size: 12px; text-align: center; }
+        .ok_img{ width: 100%;   background-color: #fff; margin-bottom: 10px;}
+        .ok_img img{ width: 100px; height: 100px; display: block; margin:0px auto; padding-top: 25px;}
+        .ok_img h3{ font-size: 14px; text-align: center; height: 25px; line-height: 25px; padding-bottom: 20px; padding-top: 15px;}
+    </style>
+</head>
+<body>
+<div class="head">
+    支付成功
+</div>
+<div class="conetnt">
+    <div class="ok_img">
+        <img src="__PUBLIC__/img/10-14041322462QL.jpg" alt="">
+        <h3>支付成功</h3>
+    </div>
+</div>
+<div class="foot">
+</div>
+<script type="text/javascript">
+    setTimeout(function c(){
+        var url = "{$order['call_url']}"+"?type=jscall&orderid={$order['orderid']}&isvip={$order['orderid']}&uiver={$order['uiver']}&money={$order['money']}&ext=";
+        window.location.href=url;
+    },2000);
+</script>
+</body>
+</html>

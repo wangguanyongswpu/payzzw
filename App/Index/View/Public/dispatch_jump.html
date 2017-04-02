@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta charset="utf-8" />
+  <title>跳转提示-{$Think.CONFIG.title}</title>
+
+  <meta name="keywords" content="{$Think.CONFIG.keywords}" />
+  <meta name="description" content="{$Think.CONFIG.description}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+  <include file="Public/head" />
+</head>
+
+<body class="no-skin">
+<?php
+  if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') == false && !empty($user)) {
+?>
+<include file="Public/header" />
+<?php } ?>
+<div class="main-container" id="main-container">
+  <script type="text/javascript">
+    try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+  </script>
+<?php
+  if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') == false && !empty($user)) {
+?>
+  <include file="Public/sidebar" />
+  <?php } ?>
+  <div class="main-content container-fluid">
+    <div class="row" style="margin-top: 100px;">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-6">
+
+      <?php if(isset($message)) {?>
+      <div class="alert alert-block alert-success">
+        <p style="text-align: center">
+          <strong>
+            <i class="ace-icon fa fa-check"></i>
+            </i><?php echo($message); ?>
+          </strong>
+        </p>
+
+      <?php }else{?>
+        <div class="alert alert-block alert-danger">
+          <p style="text-align: center">
+            <strong>
+              <i class="ace-icon fa fa-times"></i>
+              </i><?php echo($error); ?>
+            </strong>
+          </p>
+
+      <?php }?>
+          <p class="detail"></p>
+          <p class="jump" style="text-align: center">
+            页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
+          </p>
+        </div>
+
+    </div>
+        <div class="col-xs-3"></div>
+        </div>
+      </div>
+    <script type="text/javascript">
+      (function(){
+        var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+        var interval = setInterval(function(){
+          var time = --wait.innerHTML;
+          if(time <= 0) {
+            location.href = href;
+            clearInterval(interval);
+          };
+        }, 1000);
+      })();
+    </script>
+
+
+  </div><!-- /.main-content -->
+  <?php
+  if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') == false && !empty($user)) {
+?>
+  <include file="Public/footer" />
+  <?php }?>
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs" />
+</body>
+</html>

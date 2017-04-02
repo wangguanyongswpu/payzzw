@@ -1,0 +1,123 @@
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微信安全支付</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<script src="/Public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="/Public/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<style>
+	html,body{ background: #fff;}
+	*{margin:0px; padding: 0px; list-style: none;font-family:"Microsoft YaHei"}
+	.head{ width: 100%; height: 45px; line-height: 45px; text-align: center; font-size: 18px; color: #000;font-weight: bolder; background-color: #fff; box-shadow:0px 0px 3px #eee;margin-top: 40px;}
+	.left{ float: left; padding-left: 10px;}
+	.right{ float: right; padding-right: 10px;}
+	.conetnt{ margin-top: 20px;}
+	.conetnt li{  width: 100%; height: 40px; line-height: 40px;  font-size: 14px; color: #333;  background-color: #fff; border-bottom: 1px solid #eee; }
+	.m{ color:red;font-weight: bolder;}
+	.button_bar{  padding:0px 5px;overflow: hidden;}
+	.button{     height: 40px;
+    width: 30%;
+    /* background-color: #00CD00; */
+    color: #0a24e8;
+    font-size: 14px;
+    display: block;
+    margin-top: 20px;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+    /*text-decoration: none;*/
+    float: left;
+    margin-left: 40px;}
+	.err_button{     height: 40px;
+    width: 40%;
+    /* background-color: red; */
+    color: #0a24e8;
+    font-size: 14px;
+    display: block;
+    margin-top: 20px;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+    /*text-decoration: none;*/
+    float: right;
+    margin-right: 40px;}
+	.foot{ position: fixed; left: 0px; bottom:0px; font-size: 12px; text-align: center; }
+	.ok_img{ width: 100%;   background-color: #fff; margin-bottom: 10px;  display: none;}
+	.ok_img img{ width: 100px; height: 100px; display: block; margin:0px auto; padding-top: 25px;}
+	.ok_img h3{ font-size: 14px; text-align: center; height: 25px; line-height: 25px; padding-bottom: 20px; padding-top: 15px;}
+	.button_bar h3{ text-align:center;color:green;font-size: 14px; text-align: center; height: 25px; line-height: 25px; padding-bottom: 20px; padding-top: 15px;margin-top: 50px;}
+	#qrimg{width: 200px; height: 200px;}
+	.money_title{text-align: center; background-color: #fff; height: 40px; line-height: 40px; border-bottom: 5px solid #F2F2F2; width: 50%; /* text-align: center; */ margin: 0 auto;}
+</style>
+<body>
+<div class="head">
+	请长按下面识别二维码进行付款
+</div>
+<div class="money_title"><span class="m">￥<?php echo ($order_info['money']); ?> 元</span></div>
+<div class="conetnt" style="text-align: center;">
+	<div class="ok_img">
+		<img src="/Public/img/10-14041322462QL.jpg" alt="">
+		<h3>微信安全支付</h3>
+	</div>
+	<!--
+       <ul>
+        <li>
+          <div class="">支付金额:<span class="m"><?php echo ($order_info['money']); ?></span></div>
+        </li>
+
+    </ul>
+    -->
+	<h style="text-align: center;" class="QRcode">  <img style="    margin-top: 5px;" src="<?php echo ($qrimg); ?>" alt="" id='qrimg' /></h>
+</div>
+<div class="button_bar">
+	<a href="javascript:void();" class="button" onclick="cw(true)">已经支付成功</a>
+	<a href="javascript:void();" class="err_button" onclick="history.back();">支付失败,关闭页面</a>
+	<h3>微信安全支付由中国人民财产保险公司全额承保</h3>
+</div>
+<div class="foot">
+
+</div>
+<script type="text/javascript">
+	function success(){
+		$(".ok_img").show();
+		$(".button_bar").hide();
+		$(".QRcode").hide();
+		$('.money_title').hide();
+		$("title").text("支付成功");
+		$(".head").text("支付成功");
+		layer.open({content: '支付成功', time: 1});
+	}
+
+	function cw(is_bool){
+		var is_bool=is_bool?is_bool:false;
+		$.getJSON("/Pay/CheckRecharge?orderid=<?php echo ($order_info['orderid']); ?>",function(a){
+			if(a.code==1){
+				success();
+				setTimeout(function(){
+					var url = "<?php echo ($call_url); ?>"+"?orderid=<?php echo ($order_info['orderid']); ?>&money=<?php echo ($order_info['money']); ?>";
+					window.location.href=url;
+				},6000);
+				
+			}else{
+				if(is_bool){
+					alert(a.msg);
+				}
+				setTimeout(cw,4000);
+			}
+		});
+	}
+	$(document).ready(function() {
+		//var width = $(window).width()*0.8;
+		//$('#qrimg').width(width).height(width).css('margin-left',$(window).width()*0.1);
+		setTimeout(cw,1000);
+	});
+</script>
+<img src="/Public/img/wechat_last_cnzz.jpg" alt="" width="1px" height="1px">
+</body>
+</html>
