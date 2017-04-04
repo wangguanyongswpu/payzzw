@@ -247,6 +247,9 @@ $minSec = 67;
         $data['pay_amount'] = $order['money'];
         $data['pay_type'] = 1;
         $data['pay_time'] = $order['pay_time'];
+      	$data['pay_time_ymd'] = date("Y-m-d",$data['pay_time']);
+      	$data['pay_time_h'] = date("H",$data['pay_time']);
+      	$data['pay_time_ymdh'] = date("YmdH",$data['pay_time']);
         $data['pay_ip'] = $order['ip'];
 
         $data['ref1_id'] =isset($data['ref1_id'])?$data['ref1_id']:0;
