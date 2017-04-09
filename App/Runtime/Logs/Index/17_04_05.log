@@ -1,0 +1,261 @@
+[ 2017-04-05T23:54:56+08:00 ] 58.211.2.72 /Pay/link?uid=8409
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000170s ]
+NOTIC: [2] array_merge(): Argument #1 is not an array /data/www/pay/App/Index/Conf/config.php 第 13 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000214s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000238s ]
+SQL: SHOW COLUMNS FROM `qw_pay_wechat` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `qw_pay_wechat` WHERE ( status=1 AND web_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 78 行.
+NOTIC: [8] Undefined index: openid /data/www/pay/App/Index/Controller/PayController.class.php 第 109 行.
+NOTIC: [8] Undefined index: rurl /data/www/pay/App/Index/Controller/PayController.class.php 第 110 行.
+NOTIC: [8] Undefined index: appid /data/www/pay/App/Index/Controller/PayController.class.php 第 113 行.
+DEBUG: payment-wechat-token: IEWnKZ2HwOj8rPA5DAY3_RmSNC4XM5glNC6k-HT-yXm8d4vvuKANY04nKoEACyGHDKZNTIPUlflDbc7Ecv-E6i90rsfalDDcBHibLYEb2nHkr3OMExgvoV5WnKqIHsy8GDGhACAMJM
+NOTIC: [8] Undefined index: isvip /data/www/pay/App/Index/Controller/PayController.class.php 第 685 行.
+NOTIC: [8] Undefined index: type /data/www/pay/App/Index/Controller/PayController.class.php 第 696 行.
+NOTIC: [8] Undefined index: orderid /data/www/pay/App/Index/Controller/PayController.class.php 第 139 行.
+SQL: SHOW COLUMNS FROM `qw_payapi_log` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `qw_payapi_log` WHERE `orderid` = 'ln1491407696_8409642658' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: ad_app_id /data/www/pay/App/Index/Controller/PayController.class.php 第 634 行.
+NOTIC: [8] Undefined index: ad_app_uid /data/www/pay/App/Index/Controller/PayController.class.php 第 635 行.
+NOTIC: [8] Undefined index: call_url /data/www/pay/App/Index/Controller/PayController.class.php 第 641 行.
+NOTIC: [8] Undefined index: time /data/www/pay/App/Index/Controller/PayController.class.php 第 643 行.
+SQL: INSERT INTO `qw_payapi_log` (`prepayid`,`orderid`,`pay_orderid`,`openid`,`uid`,`refid`,`ad_app_id`,`ad_app_uid`,`gid`,`time`,`status`,`money`,`ip`,`call_url`,`pay_channel`,`stop_time`,`utype`,`uiver`) VALUES ('ln1491407696_8409642658','ln1491407696_8409642658','ln1491407696_8409642658','1491407696','1491407696','8409','22222','22222','1','1491407696','0','39','61.151.226.16','ceshi','1',NULL,'','') [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `qw_register_log` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( openid='ln1491407696_8409642658' AND cps_app_id='1000000001' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `qw_member` [ RunTime:0.0004s ]
+SQL: SELECT `user`,`cid`,g.uid,g.group_id AS gid FROM `qw_member` LEFT JOIN qw_auth_group_access g ON g.uid=qw_member.uid  WHERE ( qw_member.uid=8409 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `qw_member` WHERE ( uid=8400 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay-data: {"ref1_id":"8400","ref1_name":"\u6587","ref2_id":"8409","ref2_name":"\u706b\u4e91\u90aa\u795e","account":0,"username":"","uid":19407696,"sex":1,"openid":"ln1491407696_8409642658","cps_app_id":"1000000001","reg_type":1,"reg_time":1491407696,"reg_ip":1033363984}
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( ref2_id='8409' AND reg_time>1491321600 and account=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `qw_pay_log` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_pay_log` WHERE ( ref2_id='8409' AND pay_time>1491321600 and account=1 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay2-8409: reg:17 pay:12
+DEBUG: reg--pay2-8409 randrate: 1.895
+DEBUG: reg--pay2-8409 nowrate: 1.4166666666667
+SQL: INSERT INTO `qw_register_log` (`ref1_id`,`ref1_name`,`ref2_id`,`ref2_name`,`account`,`username`,`uid`,`sex`,`openid`,`cps_app_id`,`reg_type`,`reg_time`,`reg_ip`) VALUES ('8400','文','8409','火云邪神','0','','19407696','1','ln1491407696_8409642658','1000000001','1','1491407696','1033363984') [ RunTime:0.0012s ]
+DEBUG: pay_link_time_err: /Pay/link?uid=8409
+
+[ 2017-04-05T23:57:26+08:00 ] 58.211.2.6 /Pay/link?uid=8433&timestamp=&sign=5d27e76a2fa125a15c10bebf8f69736a&call_url=http://www.wxaso.cn/index/pay/callback&money=39&orderid=ln1491407846495968
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000185s ]
+NOTIC: [2] array_merge(): Argument #1 is not an array /data/www/pay/App/Index/Conf/config.php 第 13 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `qw_pay_wechat` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `qw_pay_wechat` WHERE ( status=1 AND web_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 78 行.
+NOTIC: [8] Undefined index: openid /data/www/pay/App/Index/Controller/PayController.class.php 第 109 行.
+NOTIC: [8] Undefined index: rurl /data/www/pay/App/Index/Controller/PayController.class.php 第 110 行.
+NOTIC: [8] Undefined index: appid /data/www/pay/App/Index/Controller/PayController.class.php 第 113 行.
+DEBUG: payment-wechat-token: IEWnKZ2HwOj8rPA5DAY3_RmSNC4XM5glNC6k-HT-yXm8d4vvuKANY04nKoEACyGHDKZNTIPUlflDbc7Ecv-E6i90rsfalDDcBHibLYEb2nHkr3OMExgvoV5WnKqIHsy8GDGhACAMJM
+NOTIC: [8] Undefined index: isvip /data/www/pay/App/Index/Controller/PayController.class.php 第 685 行.
+NOTIC: [8] Undefined index: type /data/www/pay/App/Index/Controller/PayController.class.php 第 696 行.
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `qw_payapi_log` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `qw_payapi_log` WHERE `orderid` = 'ln1491407846495968' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: ad_app_id /data/www/pay/App/Index/Controller/PayController.class.php 第 634 行.
+NOTIC: [8] Undefined index: ad_app_uid /data/www/pay/App/Index/Controller/PayController.class.php 第 635 行.
+NOTIC: [8] Undefined index: time /data/www/pay/App/Index/Controller/PayController.class.php 第 643 行.
+SQL: INSERT INTO `qw_payapi_log` (`prepayid`,`orderid`,`pay_orderid`,`openid`,`uid`,`refid`,`ad_app_id`,`ad_app_uid`,`gid`,`time`,`status`,`money`,`ip`,`call_url`,`pay_channel`,`stop_time`,`utype`,`uiver`) VALUES ('ln1491407846495968','ln1491407846495968','ln1491407846495968','1491407846','1491407846','8433','22222','22222','1','1491407846','0','39','58.217.251.200','http://www.wxaso.cn/index/pay/callback','1',NULL,'','') [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `qw_register_log` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( openid='ln1491407846495968' AND cps_app_id='1000000001' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `qw_member` [ RunTime:0.0004s ]
+SQL: SELECT `user`,`cid`,g.uid,g.group_id AS gid FROM `qw_member` LEFT JOIN qw_auth_group_access g ON g.uid=qw_member.uid  WHERE ( qw_member.uid=8433 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay-data: {"ref1_id":"8433","ref1_name":"\u6625\u6625","account":1,"username":"","uid":19407846,"sex":1,"openid":"ln1491407846495968","cps_app_id":"1000000001","reg_type":1,"reg_time":1491407846,"reg_ip":987364296,"ref2_id":0}
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( ref1_id='8433' AND reg_time>1491321600 and account=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `qw_pay_log` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_pay_log` WHERE ( ref1_id='8433' AND pay_time>1491321600 and account>=1 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay1-8433: reg:4 pay:1
+DEBUG: reg--pay1-8433 randrate: 2.249
+DEBUG: reg--pay1-8433 nowrate: 4
+DEBUG: reg--pay1-8433 randrate account set to 0
+SQL: INSERT INTO `qw_register_log` (`ref1_id`,`ref1_name`,`account`,`username`,`uid`,`sex`,`openid`,`cps_app_id`,`reg_type`,`reg_time`,`reg_ip`,`ref2_id`) VALUES ('8433','春春','0','','19407846','1','ln1491407846495968','1000000001','1','1491407846','987364296','0') [ RunTime:0.0010s ]
+DEBUG: pay_link_time_err: /Pay/link?uid=8433&timestamp=&sign=5d27e76a2fa125a15c10bebf8f69736a&call_url=http://www.wxaso.cn/index/pay/callback&money=39&orderid=ln1491407846495968
+
+[ 2017-04-05T23:57:27+08:00 ] 58.211.2.6 /Pay/link?uid=8433&code=011hb6y627XnPL0vgMv62Lk0y62hb6yD&state=STATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000168s ]
+NOTIC: [2] array_merge(): Argument #1 is not an array /data/www/pay/App/Index/Conf/config.php 第 13 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `qw_pay_wechat` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `qw_pay_wechat` WHERE ( status=1 AND web_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 78 行.
+NOTIC: [8] Undefined index: openid /data/www/pay/App/Index/Controller/PayController.class.php 第 109 行.
+NOTIC: [8] Undefined index: rurl /data/www/pay/App/Index/Controller/PayController.class.php 第 110 行.
+NOTIC: [8] Undefined index: appid /data/www/pay/App/Index/Controller/PayController.class.php 第 113 行.
+DEBUG: payment-wechat-token: IEWnKZ2HwOj8rPA5DAY3_RmSNC4XM5glNC6k-HT-yXm8d4vvuKANY04nKoEACyGHDKZNTIPUlflDbc7Ecv-E6i90rsfalDDcBHibLYEb2nHkr3OMExgvoV5WnKqIHsy8GDGhACAMJM
+NOTIC: [8] Undefined index: isvip /data/www/pay/App/Index/Controller/PayController.class.php 第 685 行.
+NOTIC: [8] Undefined index: type /data/www/pay/App/Index/Controller/PayController.class.php 第 696 行.
+NOTIC: [8] Undefined index: errcode /data/www/pay/App/Index/Controller/PayController.class.php 第 514 行.
+SQL: SHOW COLUMNS FROM `qw_payapi_log` [ RunTime:0.0006s ]
+SQL: UPDATE `qw_payapi_log` SET `prepayid`='wx2017040523572715a713f65b0618188469',`openid`='oLiX9wBvLsSZfxHnkvuk3yYOBWu8' WHERE ( orderid='ln1491407846495968' ) [ RunTime:0.0017s ]
+NOTIC: [8] Undefined index: call_url /data/www/pay/App/Index/Controller/PayController.class.php 第 758 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000048s ]
+NOTIC: [8] Undefined index: uiver /data/www/pay/App/Runtime/Cache/Index/2d0a421a9c8583bd1c7454ef76305c01.php 第 93 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003208s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003223s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000092s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000104s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000315s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000330s ]
+
+[ 2017-04-05T23:58:57+08:00 ] 101.71.55.105 /Pay/link?uid=8409&timestamp=&sign=5d27e76a2fa125a15c10bebf8f69736a&call_url=http://www.wxaso.cn/index/pay/callback&money=21&orderid=ln1491407936244674
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000171s ]
+NOTIC: [2] array_merge(): Argument #1 is not an array /data/www/pay/App/Index/Conf/config.php 第 13 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000251s ]
+SQL: SHOW COLUMNS FROM `qw_pay_wechat` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `qw_pay_wechat` WHERE ( status=1 AND web_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 78 行.
+NOTIC: [8] Undefined index: openid /data/www/pay/App/Index/Controller/PayController.class.php 第 109 行.
+NOTIC: [8] Undefined index: rurl /data/www/pay/App/Index/Controller/PayController.class.php 第 110 行.
+NOTIC: [8] Undefined index: appid /data/www/pay/App/Index/Controller/PayController.class.php 第 113 行.
+DEBUG: payment-wechat-token: IEWnKZ2HwOj8rPA5DAY3_RmSNC4XM5glNC6k-HT-yXm8d4vvuKANY04nKoEACyGHDKZNTIPUlflDbc7Ecv-E6i90rsfalDDcBHibLYEb2nHkr3OMExgvoV5WnKqIHsy8GDGhACAMJM
+NOTIC: [8] Undefined index: isvip /data/www/pay/App/Index/Controller/PayController.class.php 第 685 行.
+NOTIC: [8] Undefined index: type /data/www/pay/App/Index/Controller/PayController.class.php 第 696 行.
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `qw_payapi_log` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `qw_payapi_log` WHERE `orderid` = 'ln1491407936244674' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: ad_app_id /data/www/pay/App/Index/Controller/PayController.class.php 第 634 行.
+NOTIC: [8] Undefined index: ad_app_uid /data/www/pay/App/Index/Controller/PayController.class.php 第 635 行.
+NOTIC: [8] Undefined index: time /data/www/pay/App/Index/Controller/PayController.class.php 第 643 行.
+SQL: INSERT INTO `qw_payapi_log` (`prepayid`,`orderid`,`pay_orderid`,`openid`,`uid`,`refid`,`ad_app_id`,`ad_app_uid`,`gid`,`time`,`status`,`money`,`ip`,`call_url`,`pay_channel`,`stop_time`,`utype`,`uiver`) VALUES ('ln1491407936244674','ln1491407936244674','ln1491407936244674','1491407937','1491407937','8409','22222','22222','1','1491407937','0','21','39.191.207.67','http://www.wxaso.cn/index/pay/callback','1',NULL,'','') [ RunTime:0.0071s ]
+SQL: SHOW COLUMNS FROM `qw_register_log` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( openid='ln1491407936244674' AND cps_app_id='1000000001' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `qw_member` [ RunTime:0.0005s ]
+SQL: SELECT `user`,`cid`,g.uid,g.group_id AS gid FROM `qw_member` LEFT JOIN qw_auth_group_access g ON g.uid=qw_member.uid  WHERE ( qw_member.uid=8409 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `qw_member` WHERE ( uid=8400 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay-data: {"ref1_id":"8400","ref1_name":"\u6587","ref2_id":"8409","ref2_name":"\u706b\u4e91\u90aa\u795e","account":1,"username":"","uid":19407937,"sex":1,"openid":"ln1491407936244674","cps_app_id":"1000000001","reg_type":1,"reg_time":1491407937,"reg_ip":666881859}
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( ref2_id='8409' AND reg_time>1491321600 and account=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `qw_pay_log` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_pay_log` WHERE ( ref2_id='8409' AND pay_time>1491321600 and account=1 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay2-8409: reg:17 pay:12
+DEBUG: reg--pay2-8409 randrate: 2.367
+DEBUG: reg--pay2-8409 nowrate: 1.4166666666667
+SQL: INSERT INTO `qw_register_log` (`ref1_id`,`ref1_name`,`ref2_id`,`ref2_name`,`account`,`username`,`uid`,`sex`,`openid`,`cps_app_id`,`reg_type`,`reg_time`,`reg_ip`) VALUES ('8400','文','8409','火云邪神','1','','19407937','1','ln1491407936244674','1000000001','1','1491407937','666881859') [ RunTime:0.0014s ]
+DEBUG: pay_link_time_err: /Pay/link?uid=8409&timestamp=&sign=5d27e76a2fa125a15c10bebf8f69736a&call_url=http://www.wxaso.cn/index/pay/callback&money=21&orderid=ln1491407936244674
+
+[ 2017-04-05T23:58:57+08:00 ] 101.71.55.105 /Pay/link?uid=8409&code=051AIEkM0N4bX526pplM0qaukM0AIEkR&state=STATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000174s ]
+NOTIC: [2] array_merge(): Argument #1 is not an array /data/www/pay/App/Index/Conf/config.php 第 13 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `qw_pay_wechat` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `qw_pay_wechat` WHERE ( status=1 AND web_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 78 行.
+NOTIC: [8] Undefined index: openid /data/www/pay/App/Index/Controller/PayController.class.php 第 109 行.
+NOTIC: [8] Undefined index: rurl /data/www/pay/App/Index/Controller/PayController.class.php 第 110 行.
+NOTIC: [8] Undefined index: appid /data/www/pay/App/Index/Controller/PayController.class.php 第 113 行.
+DEBUG: payment-wechat-token: IEWnKZ2HwOj8rPA5DAY3_RmSNC4XM5glNC6k-HT-yXm8d4vvuKANY04nKoEACyGHDKZNTIPUlflDbc7Ecv-E6i90rsfalDDcBHibLYEb2nHkr3OMExgvoV5WnKqIHsy8GDGhACAMJM
+NOTIC: [8] Undefined index: isvip /data/www/pay/App/Index/Controller/PayController.class.php 第 685 行.
+NOTIC: [8] Undefined index: type /data/www/pay/App/Index/Controller/PayController.class.php 第 696 行.
+NOTIC: [8] Undefined index: errcode /data/www/pay/App/Index/Controller/PayController.class.php 第 514 行.
+SQL: SHOW COLUMNS FROM `qw_payapi_log` [ RunTime:0.0006s ]
+SQL: UPDATE `qw_payapi_log` SET `prepayid`='wx20170405235857adff9e5cb50759570332',`openid`='oLiX9wCpYZVbkpvfBwhfn2cA_vdY' WHERE ( orderid='ln1491407936244674' ) [ RunTime:0.0015s ]
+NOTIC: [8] Undefined index: call_url /data/www/pay/App/Index/Controller/PayController.class.php 第 758 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000026s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000046s ]
+NOTIC: [8] Undefined index: uiver /data/www/pay/App/Runtime/Cache/Index/2d0a421a9c8583bd1c7454ef76305c01.php 第 93 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002973s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002989s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000089s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000102s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000292s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000307s ]
+
+[ 2017-04-05T23:59:58+08:00 ] 58.211.2.18 /Pay/link?uid=8407&timestamp=&sign=5d27e76a2fa125a15c10bebf8f69736a&call_url=http://www.wxasj.cn/index/pay/callback&money=32&orderid=ln1491407997919129
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000195s ]
+NOTIC: [2] array_merge(): Argument #1 is not an array /data/www/pay/App/Index/Conf/config.php 第 13 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `qw_pay_wechat` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `qw_pay_wechat` WHERE ( status=1 AND web_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 78 行.
+NOTIC: [8] Undefined index: openid /data/www/pay/App/Index/Controller/PayController.class.php 第 109 行.
+NOTIC: [8] Undefined index: rurl /data/www/pay/App/Index/Controller/PayController.class.php 第 110 行.
+NOTIC: [8] Undefined index: appid /data/www/pay/App/Index/Controller/PayController.class.php 第 113 行.
+DEBUG: payment-wechat-token: IEWnKZ2HwOj8rPA5DAY3_RmSNC4XM5glNC6k-HT-yXm8d4vvuKANY04nKoEACyGHDKZNTIPUlflDbc7Ecv-E6i90rsfalDDcBHibLYEb2nHkr3OMExgvoV5WnKqIHsy8GDGhACAMJM
+NOTIC: [8] Undefined index: isvip /data/www/pay/App/Index/Controller/PayController.class.php 第 685 行.
+NOTIC: [8] Undefined index: type /data/www/pay/App/Index/Controller/PayController.class.php 第 696 行.
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 140 行.
+SQL: SHOW COLUMNS FROM `qw_payapi_log` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `qw_payapi_log` WHERE `orderid` = 'ln1491407997919129' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: ad_app_id /data/www/pay/App/Index/Controller/PayController.class.php 第 634 行.
+NOTIC: [8] Undefined index: ad_app_uid /data/www/pay/App/Index/Controller/PayController.class.php 第 635 行.
+NOTIC: [8] Undefined index: time /data/www/pay/App/Index/Controller/PayController.class.php 第 643 行.
+SQL: INSERT INTO `qw_payapi_log` (`prepayid`,`orderid`,`pay_orderid`,`openid`,`uid`,`refid`,`ad_app_id`,`ad_app_uid`,`gid`,`time`,`status`,`money`,`ip`,`call_url`,`pay_channel`,`stop_time`,`utype`,`uiver`) VALUES ('ln1491407997919129','ln1491407997919129','ln1491407997919129','1491407998','1491407998','8407','22222','22222','1','1491407998','0','32','1.62.72.225','http://www.wxasj.cn/index/pay/callback','1',NULL,'','') [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `qw_register_log` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( openid='ln1491407997919129' AND cps_app_id='1000000001' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `qw_member` [ RunTime:0.0004s ]
+SQL: SELECT `user`,`cid`,g.uid,g.group_id AS gid FROM `qw_member` LEFT JOIN qw_auth_group_access g ON g.uid=qw_member.uid  WHERE ( qw_member.uid=8407 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay-data: {"ref1_id":"8407","ref1_name":"\u5c0f\u4e54","account":0,"username":"","uid":19407998,"sex":1,"openid":"ln1491407997919129","cps_app_id":"1000000001","reg_type":1,"reg_time":1491407998,"reg_ip":20859105,"ref2_id":0}
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_register_log` WHERE ( ref1_id='8407' AND reg_time>1491321600 and account=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `qw_pay_log` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `qw_pay_log` WHERE ( ref1_id='8407' AND pay_time>1491321600 and account>=1 ) LIMIT 1   [ RunTime:0.0002s ]
+DEBUG: reg--pay1-8407: reg:11 pay:5
+DEBUG: reg--pay1-8407 randrate: 2.282
+DEBUG: reg--pay1-8407 nowrate: 2.2
+SQL: INSERT INTO `qw_register_log` (`ref1_id`,`ref1_name`,`account`,`username`,`uid`,`sex`,`openid`,`cps_app_id`,`reg_type`,`reg_time`,`reg_ip`,`ref2_id`) VALUES ('8407','小乔','0','','19407998','1','ln1491407997919129','1000000001','1','1491407998','20859105','0') [ RunTime:0.0010s ]
+DEBUG: pay_link_time_err: /Pay/link?uid=8407&timestamp=&sign=5d27e76a2fa125a15c10bebf8f69736a&call_url=http://www.wxasj.cn/index/pay/callback&money=32&orderid=ln1491407997919129
+
+[ 2017-04-05T23:59:59+08:00 ] 58.211.2.18 /Pay/link?uid=8407&code=001d5aAT1tOb0a1cwhyT1OnQzT1d5aAz&state=STATE
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000183s ]
+NOTIC: [2] array_merge(): Argument #1 is not an array /data/www/pay/App/Index/Conf/config.php 第 13 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000267s ]
+SQL: SHOW COLUMNS FROM `qw_pay_wechat` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `qw_pay_wechat` WHERE ( status=1 AND web_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: test /data/www/pay/App/Index/Controller/PayController.class.php 第 78 行.
+NOTIC: [8] Undefined index: openid /data/www/pay/App/Index/Controller/PayController.class.php 第 109 行.
+NOTIC: [8] Undefined index: rurl /data/www/pay/App/Index/Controller/PayController.class.php 第 110 行.
+NOTIC: [8] Undefined index: appid /data/www/pay/App/Index/Controller/PayController.class.php 第 113 行.
+DEBUG: payment-wechat-token: IEWnKZ2HwOj8rPA5DAY3_RmSNC4XM5glNC6k-HT-yXm8d4vvuKANY04nKoEACyGHDKZNTIPUlflDbc7Ecv-E6i90rsfalDDcBHibLYEb2nHkr3OMExgvoV5WnKqIHsy8GDGhACAMJM
+NOTIC: [8] Undefined index: isvip /data/www/pay/App/Index/Controller/PayController.class.php 第 685 行.
+NOTIC: [8] Undefined index: type /data/www/pay/App/Index/Controller/PayController.class.php 第 696 行.
+NOTIC: [8] Undefined index: errcode /data/www/pay/App/Index/Controller/PayController.class.php 第 514 行.
+SQL: SHOW COLUMNS FROM `qw_payapi_log` [ RunTime:0.0008s ]
+SQL: UPDATE `qw_payapi_log` SET `prepayid`='wx20170405235959801f406db10639943025',`openid`='oLiX9wKhblrYjf1OOX2k4VICaptM' WHERE ( orderid='ln1491407997919129' ) [ RunTime:0.0018s ]
+NOTIC: [8] Undefined index: call_url /data/www/pay/App/Index/Controller/PayController.class.php 第 758 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000025s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000042s ]
+NOTIC: [8] Undefined index: uiver /data/www/pay/App/Runtime/Cache/Index/2d0a421a9c8583bd1c7454ef76305c01.php 第 93 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003148s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003163s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000087s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000099s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000348s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000365s ]
+
